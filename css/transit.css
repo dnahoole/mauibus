@@ -1,0 +1,46 @@
+html,
+body {
+    height: 100%;
+    width: 100%;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-size: 12pt;
+    background-color: #FAFAD2;
+}
+
+section {
+    float: left;
+    width: 100%;
+    text-align: justify;
+    border: 1px ridge;
+}
+
+table { 
+    width: 100%;
+    border-collapse:collapse; 
+    background-color: lemonchiffon; 
+}
+
+table, td, th { 
+    border: 1px solid black; 
+    padding: 4px;
+    text-align: center; 
+}
+
+th {
+    color: white;
+    background-color: goldenrod; 
+}
+
+.oddrow { 
+    background-color: khaki; 
+}
+
+.tblLocation {
+    background-color: transparent;
+    transition: background-color 1s, color 1s;
+}
+
+input:focus {
+    color: white;
+    background-color: goldenrod; 
+}

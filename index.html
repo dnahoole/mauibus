@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Maui Bus & MEO Paratransit</title>
+    <link rel="stylesheet" type="text/css" href="css/project7.css">
+    <link rel="stylesheet" type="text/css" href="css/transit.css">
+    <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyCckMCTYOqMly5Ye8HAa74ijG69vOzBz8Q" type="text/javascript"></script>
+    <script type="text/javascript" src="js/d3.v3.min.js"></script>
+    <script type="text/javascript" src="js/project7.js"></script>
+    <script type="text/javascript" src="js/transit.js"></script>
+</head>
+
+<body>
+    <div id="response" class="left-side"></div>
+    <section class="right-side">
+        <iframe id="gmStreet" class="right-section" src=""></iframe>
+        <div class="radio-section" onchange="gis.showPanel()">
+            <label>
+                <input id="rb1" name="mapData" type="radio" checked>Maui Bus</label>
+            <label>
+                <input id="rb2" name="mapData" type="radio">Maui Places</label>
+            <label>
+                <input id="rb4" name="mapData" type="radio">MEO Paratransit</label>
+        </div>
+        <div class="right-section">
+            <div class="panel">
+                <div id="panelRoute">
+                    <table>
+                    <tr></tr><th>Route...</th><th>Schedule...</th></tr>
+                    <tr><td>
+                        <select id="myRoute" onchange="gis.showRoute(value)">
+                            <option value="" selected>Route...</option>
+                            <option value="Kahului,Wailuku">#1: Kahului to Wailuku</option>
+                            <option value="Kahului,Maalaea">#2: Kahului to Ma'alaea</option>
+                            <option value="Kahului,Kihei">#3: Kahului to Kihei</option>
+                            <option value="Kahului,Lahaina">#4: Kahului to Lahaina</option>
+                            <option value="Kahului,Pukalani">#5: Kahului to Pukalani</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select id="dataSrc" onchange="json.requestJSON(value)">
+                            <option value="" selected>Schedule...</option>
+                            <option value="bus/wailukuloop/route1">Wailuku Loop Route #1</option>
+                            <option value="bus/wailukuloop/route2">Wailuku Loop Route #2</option>
+                            <option value="bus/kulavillager/route39">Kula Villager Route #39</option>
+                            <option value="bus/upcountry/route40">Upcountry Islander Route #40</option>
+                            <option value="bus/maui">All Routes</option>
+                        </select>
+                    </td></tr>
+                    </table>
+                </div>
+                <div id="panelPlace">
+                    <input id="btnPlace" type="button" value="Find" onclick="gis.showPlace()">
+                    <input id="idPlace" type="text" value="Kahului, HI">
+<!--                    <input id="btnSearch" type="button" value="Search" onclick="gis.showSearch()">
+                    <input id="idSearch" type="text" value="Kahului, HI">
+-->                 
+                    <div id=btnSearch" onclick="gis.showSearch()">
+                    <label>
+                        <input id="rbBus" name="mapSearch" type="radio">Bus Stops</label>
+                    <br>
+                    <label>
+                        <input id="rbRest" name="mapSearch" type="radio">Restaurants</label>
+                    <br>
+                    <label>
+                        <input id="rbHosp" name="mapSearch" type="radio">Hospitals</label>
+                    <br>
+                    </div>
+                </div>
+                <div id="panelTransit">
+                    <label>Route:
+                        <select id="dbroute" onchange="json.requestRoute(value)">
+                            <option value="" selected>...</option>
+                        </select>
+                    </label>
+                    <label>Passenger:
+                        <select id="dbpass" onchange="json.requestPassenger(value)">
+                            <option value="" selected>...</option>
+                        </select>
+                    </label><br>
+                    <form id="frmMEO" method = "post" target = "ifResponse" action = "">
+            
+                       <input type = "hidden" name = "idMEO"
+                          value = "">
+                       <input type = "hidden" name = "subject" 
+                          value = "">
+                       <input type = "hidden" name = "redirect" 
+                          value = "project7.html">
+                        
+                        <table><tbody>
+                        
+                       <tr><td><input name = "route" type = "text" placeholder="Route"></td>
+                       <td><input name = "vechicle" type = "text" placeholder="Vehicle/Passenger"></td></tr>
+               
+                       <tr><td><input name = "date" type = "text" placeholder="Pickup Date"></td>
+                       <td><input name = "pickup" type = "text" placeholder="Pickup Time"><td></tr>
+
+                       <tr><td colspan=2><input name = "fromAddress" type = "text" placeholder="From Address"></td></tr>
+
+                       <tr><td colspan=2><input name = "toAddress" type = "text" placeholder="To Address"></td></tr>
+
+                        </tbody>
+                        </table>
+                       <p>
+                          <input type = "submit" value = "Submit">
+                          <input type = "reset" value = "Clear">
+                       </p>   
+                    </form>
+                    <p>
+                    <iframe id="ifResponse" name="ifResponse" frameborder="0" class=".ifResponse" seamless></iframe>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+<script type="text/javascript">
+    var gis = new GIS();
+    var json = new MyAJAX();
+    gis.init();
+    json.init();
+</script>
+
+</html>

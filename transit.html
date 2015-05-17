@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>MEO ParaTransit</title>
+    <link rel="stylesheet" type="text/css" href="css/transit.css">
+    <script type="text/javascript" src="js/transit.js"></script>
+</head>
+
+<body>
+    <section>
+        <table><thead>
+        <tr><th>The Maui Bus:
+            <select id="dataSrc" onclick="json.requestJSON(value)">
+                <option value="" selected>Route...</option>
+                <option value="bus/wailukuloop/route1">Wailuku Loop Route #1</option>
+                <option value="bus/wailukuloop/route2">Wailuku Loop Route #2</option>
+                <option value="bus/maui">All Routes</option>
+            </select>
+        </th>
+        <th>MEO Paratransit:
+            <select id="dbquery" onclick="json.requestDB(value)">
+                <option value="" selected>Reports...</option>
+                <option value="db/route">Routes Report</option>
+                <option value="db/passenger">Passenger Report</option>
+            </select>
+        </th></tr>
+        </thead></table>
+        <p>
+            <div id="response"></div>
+        </p>
+    </section>
+</body>
+<script type="text/javascript">
+    var json = new MyAJAX();
+    json.init("http://192.168.200.72:8000/");
+</script>
+</html>

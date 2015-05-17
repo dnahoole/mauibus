@@ -1,0 +1,111 @@
+html,
+body {
+    height: 100%;
+    width: 100%;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-size: 12pt;
+}
+select, input {
+    font-family: inherit;
+    font-size: inherit;
+}
+.left-side, .right-side {
+    float: left;
+    height: 100%;
+    width: 70%;
+    padding: 2px;
+    border-radius: 10px;
+    border: 1px solid black;
+    overflow: scroll;
+}
+.right-side {
+    width: 28%;
+    overflow: hidden;
+}
+.right-section {
+    position: relative;
+    float: left;
+    height: 47%;
+    width: 99%;
+    font-family: inherit;
+    font-size: inherit;
+    border: 1px solid black;
+    border-radius: 10px;
+    overflow: hidden;
+    color: black;
+}
+.panel {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: url("http://maui.hawaii.edu/wp-content/uploads/2015/01/logo.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#panelRoute, #panelPlace, #panelSearch, #panelTransit {
+    color: white;
+    background: navy;
+    display: none;
+    opacity: 0.9;
+    padding: 10px;
+    height: 100%;
+    width: 100%;
+}
+#panelRoute table {
+    color: black;
+    border-collapse: collapse;
+    width: auto;
+    border: none;
+}
+#panelRoute th {
+    background-color: navy;
+    border: none;
+}
+#panelPlace {
+    color: black;
+    background: gold;
+}
+#panelSearch {
+    color: black;
+    background: red;
+}
+#panelTransit {
+    color: white;
+    background: green;
+    overflow: scroll;
+}
+#frmMEO table input {
+    width: 100%;
+    color: black;
+    background: white;
+    border: 1px groove white;
+}
+#frmMEO table {
+    background: green;
+    border: 0px solid white;
+}
+#frmMEO table td {
+    background: green;
+    border: 0px solid white;
+}
+.ifResponse {
+    height: 10%;
+    width: 100%;
+    color: white;
+    font-family: arial sans-serif;
+    font-size: 14pt;
+}
+.radio-section {
+    float: left;
+    color: black;
+    font-family: inherit;
+    font-size: inherit;
+    border: 1px solid black;
+    border-radius: 10px;
+    height: 4%;
+    width: 98%;
+    padding: 2px;
+    background: -webkit-gradient( linear, center top, center bottom, color-stop(10%, White), color-stop(60%, lightsteelblue));
+    background: -moz-linear-gradient( top center, white 10%, lightsteelblue 60%);
+    background: linear-gradient( top, White 10%, lightsteelblue 60%);
+}
