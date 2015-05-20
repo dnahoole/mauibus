@@ -1,0 +1,25 @@
+html,
+body {
+    height: 100%;
+    width: 100%;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-size: 12pt;
+    background-color: #FAFAD2;
+}
+
+table { 
+    width: 99%;
+    border-collapse:collapse; 
+    background-color: lemonchiffon; 
+    border: 1px solid black; 
+    text-align: center;
+    height: auto;
+}
+
+input {
+    height: 100%;
+    width: 100%;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-size: 12pt;
+    background-color: #FAFAD2;
+}

@@ -2,7 +2,7 @@
 // And mysql module you've just installed. 
 var querystring = require("querystring");
 var mysql = require("mysql");
-var http = require('http');
+var https = require('https');
 var url = require('url');
 var fs = require("fs");
 
@@ -20,7 +20,7 @@ var replySuccess = function(response, content_type, data) {
     response.end(data);
 };
 
-var server = http.createServer(function(request, response) {
+var server = https.createServer(function(request, response) {
     var obj = url.parse(request.url, true);
     var mypath = obj.pathname.substring(1);
 

@@ -1,35 +1,37 @@
 function GIS() {
         //--- GIS Properties
-	this.response = null;
+    	this.response = null;
         this.gmStreet = null;
-	this.dbroute = null;
-	this.dbpass = null;
+    	this.dbroute = null;
+    	this.dbpass = null;
         this.geocoder = new google.maps.Geocoder();
 
         this.apikey = "?key=AIzaSyCckMCTYOqMly5Ye8HAa74ijG69vOzBz8Q";
 
         this.rb1 = document.getElementById('rb1');
         this.rb2 = document.getElementById('rb2');
+        this.rb3 = document.getElementById('rb3');
         this.rb4 = document.getElementById('rb4');
 
         this.panelRoute = document.getElementById('panelRoute');
         this.panelPlace = document.getElementById('panelPlace');
         this.panelSearch = document.getElementById('panelSearch');
         this.panelTransit = document.getElementById('panelTransit');
+        this.panelConfig = document.getElementById('panelConfig');
 
         this.panel = null;
 
         //--- GIS Methods
         this.init = function() {
-	    this.response = document.getElementById('response');
+	        this.response = document.getElementById('response');
             this.gmStreet = document.getElementById('gmStreet');
-	    this.dbroute = document.getElementById('dbroute');
-	    this.dbpass = document.getElementById('dbpass');
+    	    this.dbroute = document.getElementById('dbroute');
+    	    this.dbpass = document.getElementById('dbpass');
             this.showPanel();
             this.showRoute("Kahului,Wailuku");
         };
 
-        this.showPanel = function() {
+        this.showPanel = function(e) {
             if (this.panel)
                 this.panel.setAttribute("style", "display: none");
 
@@ -44,8 +46,12 @@ function GIS() {
             else if (this.rb4.checked) {
                 this.panelTransit.setAttribute("style", "display: block");
                 this.panel = this.panelTransit;
-		this.requestRouteList();
-		this.requestPassengerList();
+        		this.requestRouteList();
+        		this.requestPassengerList();
+            }
+            else if (this.rb3.checked) {
+                this.panelConfig.setAttribute("style", "display: block");
+                this.panel = this.panelConfig;
             }
         };
 
@@ -115,6 +121,9 @@ function GIS() {
             var route = pickup + "," + dropoff;
             this.response.innerHTML = "<iframe width=100% height=1000px src=" + url + "></iframe>";
             this.geocodeAddress(dropoff);
+        };
+
+        this.showConfig = function() {
         };
 
         this.geocodeAddress = function(address) {

@@ -42,7 +42,7 @@ select, input {
     background-repeat: no-repeat;
     background-position: center;
 }
-#panelRoute, #panelPlace, #panelSearch, #panelTransit {
+#panelRoute, #panelPlace, #panelSearch, #panelTransit, #panelConfig {
     color: white;
     background: navy;
     display: none;
@@ -73,6 +73,15 @@ select, input {
     color: white;
     background: green;
     overflow: scroll;
+}
+#panelConfig {
+    color: white;
+    background: purple;
+    overflow: scroll;
+}
+#panelConfig th {
+    color: black;
+    background-color: pink;
 }
 #frmMEO table input {
     width: 100%;
@@ -108,4 +117,42 @@ select, input {
     background: -webkit-gradient( linear, center top, center bottom, color-stop(10%, White), color-stop(60%, lightsteelblue));
     background: -moz-linear-gradient( top center, white 10%, lightsteelblue 60%);
     background: linear-gradient( top, White 10%, lightsteelblue 60%);
+}
+
+section {
+    float: left;
+    width: 100%;
+    text-align: justify;
+    border: 1px ridge;
+}
+
+table { 
+    width: 100%;
+    border-collapse:collapse; 
+    background-color: lemonchiffon; 
+}
+
+table, td, th { 
+    border: 1px solid black; 
+    padding: 4px;
+    text-align: center; 
+}
+
+th {
+    color: white;
+    background-color: goldenrod; 
+}
+
+.oddrow { 
+    background-color: khaki; 
+}
+
+.tblLocation {
+    background-color: transparent;
+    transition: background-color 1s, color 1s;
+}
+
+input:focus {
+    color: white;
+    background-color: goldenrod; 
 }

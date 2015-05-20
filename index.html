@@ -5,11 +5,11 @@
 <head>
     <title>Maui Bus & MEO Paratransit</title>
     <link rel="stylesheet" type="text/css" href="css/project7.css">
-    <link rel="stylesheet" type="text/css" href="css/transit.css">
     <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyCckMCTYOqMly5Ye8HAa74ijG69vOzBz8Q" type="text/javascript"></script>
     <script type="text/javascript" src="js/d3.v3.min.js"></script>
     <script type="text/javascript" src="js/project7.js"></script>
     <script type="text/javascript" src="js/transit.js"></script>
+    <script type="text/javascript" src="js/config.js"></script>
 </head>
 
 <body>
@@ -23,6 +23,8 @@
                 <input id="rb2" name="mapData" type="radio">Maui Places</label>
             <label>
                 <input id="rb4" name="mapData" type="radio">MEO Paratransit</label>
+            <label>
+                <input id="rb3" name="mapData" type="radio">Config.</label>
         </div>
         <div class="right-section">
             <div class="panel">
@@ -108,17 +110,32 @@
                           <input type = "reset" value = "Clear">
                        </p>   
                     </form>
+                </div>
+                <div id="panelConfig">
+                    <table>
+                        <tbody>
+                            <tr><th>URL of Paratransit web service</th></tr>
+                            <tr><td>
+                                <input id="webservice" type="text" style="width: 98%" placeholder="http://localhost">
+                            </td></tr>
+                        </tbody>
+                    </table>
                     <p>
-                    <iframe id="ifResponse" name="ifResponse" frameborder="0" class=".ifResponse" seamless></iframe>
+                        <input id="btnSubmit" type="button" value="Submit">
                     </p>
                 </div>
             </div>
+            <p>
+                <iframe id="ifResponse" name="ifResponse" frameborder="0" class=".ifResponse" seamless></iframe>
+            </p>
         </div>
     </section>
 </body>
 <script type="text/javascript">
     var gis = new GIS();
     var json = new MyAJAX();
+    var cfg = new MyStorage();
+    cfg.init();
     gis.init();
     json.init();
 </script>

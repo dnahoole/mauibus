@@ -10,7 +10,7 @@ function MyAJAX() {
 
 	this.requestJSON = function(myfile) {
 	    if (myfile === "") return;
-            
+        var url = document.getElementById("webservice").value;
 	    var self = this;
             var datatype = "";
 	    
@@ -32,7 +32,7 @@ function MyAJAX() {
 		break;
 	    }
 
-	    asyncRequest.open("GET", myfile, true);
+	    asyncRequest.open("GET", url+myfile, true);
 	    asyncRequest.setRequestHeader("Accept", datatype);
 	    asyncRequest.send(); // send request
 	};
@@ -68,6 +68,7 @@ function MyAJAX() {
 
 	this.requestRoute = function(dbquery) {
 	    if (dbquery === "") return;
+        var url = document.getElementById("webservice").value;
 
 	    // send the asynchronous request
 	    var asyncRequest = new XMLHttpRequest();
@@ -77,13 +78,14 @@ function MyAJAX() {
 		function() { self.parseRoute(asyncRequest); },
 		false);
 
-	    asyncRequest.open("GET", dbquery, true);
+	    asyncRequest.open("GET", url+dbquery, true);
 	    asyncRequest.setRequestHeader("Accept", "application/json");
 	    asyncRequest.send(); // send request        
 	};
 
 	this.requestPassenger = function(dbquery) {
 	    if (dbquery === "") return;
+        var url = document.getElementById("webservice").value;
 
 	    // send the asynchronous request
 	    var asyncRequest = new XMLHttpRequest();
@@ -93,7 +95,7 @@ function MyAJAX() {
 		function() { self.parsePassenger(asyncRequest); },
 		false);
 
-	    asyncRequest.open("GET", dbquery, true);
+	    asyncRequest.open("GET", url+dbquery, true);
 	    asyncRequest.setRequestHeader("Accept", "application/json");
 	    asyncRequest.send(); // send request        
 	};
